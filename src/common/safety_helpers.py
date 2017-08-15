@@ -1,9 +1,10 @@
-from flask import Response
+from flask import Response, current_app
 
 
 def check_auth(username, password):
-
-    return username == 'admin' and password == 'secret'
+    cnf = current_app.config
+    return username == cnf['BASIC_AUTH_USER'] and password == cnf[
+        'BASIC_AUTH_PASS']
 
 def must_authenticate():
     """Sends a 401 response that enables basic auth"""
