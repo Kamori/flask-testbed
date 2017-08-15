@@ -1,0 +1,15 @@
+.full-bg {
+    height:100vh;
+    margin: 0px;
+    background-color:#9a9a9c;
+}
+
+.full-screen{
+    height:100vh;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
