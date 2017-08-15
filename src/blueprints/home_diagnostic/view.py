@@ -15,8 +15,9 @@ def is_online():
     # Setup server backend
     # Add CSS and make it pretty
     if is_request('GET'):
+        status, timestamp = online_status(True)
         resp = render_template('online_status.html',
-                               online_status=online_status(True))
+                               status=status, timestamp=timestamp)
     elif is_request('PUT'):
         online = json_data(silent=True)
         if online:

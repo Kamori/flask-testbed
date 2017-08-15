@@ -7,11 +7,20 @@
 
 {% block body -%}
 <div class="d-flex full-screen">
-  <div class="align-self-center centered">
-  {%- if online_status -%}
-      <font color="green">{{online_status}}</font>
+  <div class="align-self-center col-sm-6 centered">
+  {%- if status -%}
+      <div class="alert alert-success alert-dropshadow" role="alert">
+        <h4 class="alert-heading">Hey I'm Alive!</h4>
+        <p>You found out this machine is still awake. This is good! Because,
+        if it was offline that would mean its broken.</p>
+        <hr>
+      </div>
   {%- else -%}
-      <font color="red">{{online_status}}</font>
+      <div class="alert alert-danger alert-dropshadow" role="alert">
+        <h4 class="alert-heading">I'm dead!</h4>
+        <p>I've been dead since: {{timestamp}}. I hope someone revives me!</p>
+        <hr>
+      </div>
   {%- endif -%}
   </div>
 </div>

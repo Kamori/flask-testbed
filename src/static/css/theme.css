@@ -1,7 +1,7 @@
 .full-bg {
     height:100vh;
     margin: 0px;
-    background-color:#9a9a9c;
+    background-color:#4e4e4e;
 }
 
 .full-screen{
@@ -11,5 +11,10 @@
 .centered {
     margin-left: auto;
     margin-right: auto;
+}
+
+.alert-dropshadow{
+    box-shadow: 8px 5px 16px #c7b4b4;
+    border: 3px #bdbcbc solid;
 }
 
