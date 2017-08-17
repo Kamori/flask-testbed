@@ -1,6 +1,6 @@
 from flask import request
 
-def is_request(verb):
+def is_method(verb):
     if request.method == verb.upper():
         return True
     else:
