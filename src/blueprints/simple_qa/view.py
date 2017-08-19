@@ -3,6 +3,7 @@ from flask_restful import Resource, Api, reqparse
 from pony import orm
 from .model import Question, Answer, User, Tag, Status, db
 from src.common.database_helpers import recursive_to_dict
+from src.common.response_codes import typeerror_response
 
 
 simp_qa = Blueprint('simple_qa', __name__,)
@@ -30,7 +31,7 @@ class QuestionResource(Resource):
     @orm.db_session()
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('statusid', help='Need int(statusid)',
+        parser.add_argument('statusid', type=int, help='Need int(statusid)',
                             location='json', required=True)
         parser.add_argument('userid', help='Need int(userid)',
                             location='json',
@@ -39,8 +40,13 @@ class QuestionResource(Resource):
                             required=True)
         parser.add_argument('question', help='Need str(question)',
                             location='json', required=True)
+        parser.add_argument('tags', action='append', location='json')
         args = parser.parse_args()
 
+        if args.get('tags') and not isinstance(args['tags'], list):
+            print(type(args['tags']))
+            print(str([i for i in args['tags']]))
+            return typeerror_response('tags', args['tags'], list)
 
         statusid = Status[args['statusid']]
         userid = User[args['userid']]
