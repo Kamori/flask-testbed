@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint
 from src.blueprints.home_diagnostic.view import home_diagnostic
 from src.blueprints.passwordmanager.view import pwm as password_manager
+from src.blueprints.simple_qa.view import simp_qa as simple_qa
 
 import os
 
@@ -22,6 +23,7 @@ def register_base_routes(app):
 def register_blueprints(app):
     app.register_blueprint(home_diagnostic, url_prefix='/home')
     app.register_blueprint(password_manager, url_prefix='/passwd')
+    app.register_blueprint(simple_qa, url_prefix='/simpleqa')
 
 
 def configure():
