@@ -6,7 +6,7 @@
 - Date updated
 - Best answer
 - Ability to edit
-- Add/show tags
+- ~~Add/show tags~~
 - question topic, and question
 
 
@@ -21,8 +21,17 @@
 
 ~~CR~~UD User
 
-R Tags
+C~~R~~UD Tags
 
 
 LDAP users
 Slack Integration (per tag)
+
+How to pull of slack integration (notifications?)
+
+Celery jobs kick of every "event" and check against a notification rule db 
+table?
+
+Or only check on tag and have a tag to channel relationship?
+
+These are the things we gotta think about

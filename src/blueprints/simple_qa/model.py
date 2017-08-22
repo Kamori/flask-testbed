@@ -53,6 +53,7 @@ class User(db.Entity):
 class Tag(db.Entity):
     _table_ = 'Tags'
     id = PrimaryKey(int, auto=True)
+    name = Required(str, unique=True)
     questions = Set(Question)
 
 
